@@ -9,7 +9,6 @@ conky.config = {
 	text_buffer_size = 32768,
 	imlib_cache_size = 0,
 	own_window = true,
-	own_window_type = 'override',
 	own_window_argb_visual = true,
 	own_window_argb_value = 50,
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
