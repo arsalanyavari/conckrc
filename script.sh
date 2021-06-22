@@ -31,8 +31,8 @@ fi
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=4
-BACKTITLE="Backtitle here"
-TITLE="Title here"
+BACKTITLE="dedicated to X.RMZ"
+TITLE=" \Zb\Z1ARYA\Z3 concky configure "
 MENU="Choose one of the following options:"
 
 
@@ -43,6 +43,7 @@ OPTIONS=(1 "TEST"
 CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
                 --title "$TITLE" \
+		--colors \
                 --menu "$MENU" \
                 $HEIGHT $WIDTH $CHOICE_HEIGHT \
                 "${OPTIONS[@]}" \
