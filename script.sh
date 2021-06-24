@@ -20,7 +20,7 @@ then
         then
         	if [ $DISTRO = "ubuntu" ] || [ $DISTRO = "debian" ] || [ $DISTRO = "kali" ]
                 then
-                	echo "installing... "
+                	sudo apt install conky -y
                 elif [ $DISTRO = "arch" ] || [ $DISTRO = "manjaro" ] 
                 then
                         sudo pacman -Sy conky
