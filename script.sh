@@ -3,6 +3,7 @@
 sudo echo ""
 DISTRO=$(cat /etc/os-release | grep ^ID= | cut --complement -d "=" -f 1)
 dialog_exist=$(which dialog)
+dialogrc_path=$(ls ~/.dialogrc 2> /dev/null)
 CONKY_PATH=$(which conky)
 if [ -z "$dialog_exist" ]
 then
@@ -28,6 +29,9 @@ then
          fi
 fi
 
+cp ~/.dialogrc ~/.dialogrc_old 2> /dev/null
+cp ./.dialogrc ~/
+
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=4
@@ -50,10 +54,18 @@ CHOICE=$(dialog --clear \
                 2>&1 >/dev/tty)
 
 clear
+
+if [ -z "$dialogrc_path" ]
+then
+	rm ~/.dialogrc
+else
+	cp ~/.dialogrc_old ~/.dialogrc
+fi
+
 case $CHOICE in
         1)
             cp ~/.conkyrc ~/.conkyrc_old 2>/dev/null
-            cp ./.conkyrc ~
+            cp ./.conkyrc ~/  
             conky & 
             sleep 3
   	    echo -e '\n\n'
@@ -76,8 +88,6 @@ case $CHOICE in
             rm ~/.conkyrc_old 2>/dev/null
             pkill conky
 	    sed -i '/conky &/d' ~/.profile
-	    #chek it please :)
 	    ;;
 
 esac
-
