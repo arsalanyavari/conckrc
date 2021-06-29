@@ -83,9 +83,9 @@ case $CHOICE in
 	    echo "conky &" >> ~/.profile
 	    echo "successfull! please reboot your sestem"
             ;;
-        3)
-	    cp ~/.conkyrc_old ~/.conkyrc 2>/dev/null
-            rm ~/.conkyrc_old 2>/dev/null
+        3)<
+	    rm ~/.conkyrc
+            mv ~/.conkyrc_old ~/.conkyrc 2>/dev/null
             pkill conky
 	    sed -i '/conky &/d' ~/.profile
 	    ;;
