@@ -5,7 +5,7 @@ DISTRO=$(cat /etc/os-release | grep ^ID= | cut --complement -d "=" -f 1)
 dialog_exist=$(which dialog)
 dialogrc_path=$(ls ~/.dialogrc 2> /dev/null)
 CONKY_PATH=$(which conky)
-mkdir ~/.conky
+sudo mkdir ~/.conky
 if [ -z "$dialog_exist" ]
 then
 	if [ $DISTRO = "ubuntu" ] || [ $DISTRO = "debian" ] || [ $DISTRO = "kali" ]
@@ -30,14 +30,14 @@ then
          fi
 fi
 
-cp ~/.dialogrc ~/.dialogrc_old 2> /dev/null
-cp ./.dialogrc ~/
+sudo cp ~/.dialogrc ~/.dialogrc_old 2> /dev/null
+sudo cp ./.dialogrc ~/
 
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=4
-BACKTITLE="dedicated to X.RMZ"
-TITLE=" \Zb\Z1ARYA\Z3 concky configure "
+BACKTITLE="Backtitle here"
+TITLE="Title here"
 MENU="Choose one of the following options:"
 
 
@@ -58,41 +58,41 @@ clear
 
 if [ -z "$dialogrc_path" ]
 then
-	rm ~/.dialogrc
+        sudo rm ~/.dialogrc
 else
-	cp ~/.dialogrc_old ~/.dialogrc
+        sudo cp ~/.dialogrc_old ~/.dialogrc
 fi
 
 case $CHOICE in
         1)
-            cp ~/.conkyrc ~/.conkyrc_old 2>/dev/null
-            cp ./.conkyrc ~/
-            cp ./pic ~/.conky/
+            sudo cp ~/.conkyrc ~/.conkyrc_old 2>/dev/null
+            sudo cp ./.conkyrc ~/
+            sudo cp -r ./pic ~/.conky/
             conky & 
             sleep 3
-  	    echo -e '\n\n'
-	    read -p '>>Please press enter to finish...'
-            cp ~/.conkyrc_old ~/.conkyrc 2>/dev/null
-            rm ~/.conkyrc_old
-            rm -rf ~/.conky/pic
+            echo -e '\n\n'
+            read -p '>>Please press enter to finish...'
+            sudo rm ~/.conkyrc
+            sudo cp ~/.conkyrc_old ~/.conkyrc 2>/dev/null
+            sudo rm -r ~/.conky/pic
             pkill conky
             clear
             echo "When you reboot your system all will be like past..."
             ;;
         2)
-	    cp ~/.conkyrc ~/.conkyrc_old 2>/dev/null
-            cp ./.conkyrc ~/
-            cp ./pic ~/.conky/
-	    sed -i '/conky &/d' ~/.profile
-	    echo "conky &" >> ~/.profile
-	    echo "successfull! please reboot your system =)"
+            sudo cp ~/.conkyrc ~/.conkyrc_old 2>/dev/null
+            sudo cp ./.conkyrc ~/
+            sudo cp -r ./pic ~/.conky/
+            sed -i '/conky &/d' ~/.profile
+            echo "conky &" >> ~/.profile
+            echo "successfull! please reboot your system =)"
             ;;
         3)
-	    rm ~/.conkyrc
-	    mv ~/.conkyrc_old ~/.conkyrc 2>/dev/null
-            rm -rf ~/.conky/pic
+            sudo rm ~/.conkyrc
+            sudo mv ~/.conkyrc_old ~/.conkyrc 2>/dev/null
+            sudo rm -r ~/.conky/pic
             pkill conky
-	    sed -i '/conky &/d' ~/.profile
-	    ;;
+            sed -i '/conky &/d' ~/.profile
+            ;;
 
 esac
