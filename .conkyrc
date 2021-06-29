@@ -37,20 +37,20 @@ ${font sans-serif:bold:size=8}${time %H:%M:%S}${alignr}${time %y-%m-%d}
 
 
 ${alignc}${font sans-serif:bold:size=13}$nodename
-${image /home/arya/.conky/pic/icons8-microchip-48.png -p 0,80 -s 30x30}
+${image ~/.conky/pic/icons8-microchip-48.png -p 0,80 -s 30x30}
 ${font sans-serif:bold:size=13}${color d7db3e}      CPU ${color 43a047}${hr 2}
 ${font sans-serif:normal:size=8}${color 43a047}${execi 1000 grep model /proc/cpuinfo | cut -d : -f2 | tail -1 | sed 's/\s//'}$alignr${freq_g 1}  
 ${font sans-serif:normal:size=8}${alignr}${cpugraph 32,400 5EFF00 FF7800 -t}
 ${color d7db3e}CPU: ${cpu cpu1}% ${cpubar cpu1}
 
-${image /home/arya/.conky/pic/icons8-memory-slot-48.png -p 0,205 -s 30x30}
+${image ~/.conky/pic/icons8-memory-slot-48.png -p 0,205 -s 30x30}
 ${font sans-serif:bold:size=13}${color d7db3e}      MEMORY ${color 43a047}${hr 2}
 ${font sans-serif:normal:size=8}RAM $alignc $mem / $memmax $alignr $memperc%
 $membar
 SWAP $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
-${image /home/arya/.conky/pic/icons8-storage-64.png -p 0,315 -s 30x30}
+${image ~/.conky/pic/icons8-storage-64.png -p 0,315 -s 30x30}
 ${font sans-serif:bold:size=13}${color 72caaf}      DISK USAGE ${color ed7899}${hr 2}
 ${color ed7899}${font sans-serif:normal:size=8}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${fs_bar /}
@@ -59,14 +59,14 @@ ${fs_bar /home}
 ${font sans-serif:normal:size=8}Arsalan $alignc ${fs_used /run/media/Arsalan} / ${fs_size /run/media/Arsalan} $alignr ${fs_used_perc /run/media/Arsalan}%
 ${fs_bar /run/media/Arsalan}
 
-${image /home/arya/.conky/pic/network.png -p 0,440 -s 37x37}
+${image ~/.conky/pic/network.png -p 0,440 -s 37x37}
 ${font Ubuntu:bold:size=13}${color b3e59f}           NETWORK ${color b2e5fb}${hr 2}
 ${font sans-serif:normal:size=8}Local IPs:${alignr}External IP:
 ${execi 1000 ifconfig wlp2s0 | grep "inet "| cut -d " " -f10}  ${alignr}${execi 1000  wget -q -O- http://ipecho.net/plain ; echo}
 ${font sans-serif:normal:size=8}Down: ${downspeed wlp2s0}  ${alignr}Up: ${upspeed wlp2s0}
 ${goto 20}${downspeedgraph wlp2s0 80,185 06E9F8 2104FA}${goto 220}${upspeedgraph wlp2s0 80,185 FFFF00 DD3A21}
 #
-${image /home/arya/.conky/pic/icons8-line-chart-40.png -p 0,622 -s 30x30}
+${image ~/.conky/pic/icons8-line-chart-40.png -p 0,622 -s 30x30}
 ${font sans-serif:bold:size=13}       ${color C2E078}TOP PROCESSES ${hr 2}
 ${font sans-serif:normal:size=8}Name $alignr PID   CPU%   MEM%${font sans-serif:normal:size=8}
 ${color FF0000}${top name 1} $alignr ${top pid 1} ${top cpu 1}% ${top mem 1}%
@@ -80,7 +80,7 @@ ${color FFDF00}${top name 8} $alignr ${top pid 8} ${top cpu 8}% ${top mem 8}%
 ${color C2FF00}${top name 9} $alignr ${top pid 9} ${top cpu 9}% ${top mem 9}%
 ${color 5EFF00}${top name 10} $alignr ${top pid 10} ${top cpu 10}% ${top mem 10}%
 #
-${image /home/arya/.conky/pic/icons8-laptop-48.png -p 0,807 -s 27x27}
+${image ~/.conky/pic/icons8-laptop-48.png -p 0,807 -s 27x27}
 ${font sans-serif:bold:size=13}${color 006ac1}      SYSTEM ${color 5ccdf7}${hr 2}
 ${font sans-serif:normal:size=8}$sysname $kernel $alignr $machine
 Host:$alignr$nodename
@@ -88,7 +88,7 @@ Uptime:$alignr$uptime
 File System: $alignr${fs_type}
 Processes: $alignr ${execi 1000 ps aux | wc -l}
 
-${image /home/arya/.conky/pic/pacman.png -p 20,865 -s 360x225}
+${image ~/.conky/pic/pacman.png -p 20,865 -s 360x225}
 
 
 
