@@ -16,9 +16,15 @@ then
 	elif [ $DISTRO = "arch" ] || [ $DISTRO = "manjaro" ]
 	then
         	sudo pacman -Sy dialog
-	elif [ $DISTRO = "fedora" ] || [ $DISTO = "centos" ] || [ $DISTRO = "opensuse" ]
+	elif [ $DISTRO = "fedora" ]
 	then
 		sudo dnf -y dialog
+	elif [ $DISTRO = "opensuse" ]
+	then
+		sudo zypper -y dialog
+	elif  [ $DISTO = "centos" ]
+	then
+		sudo yum -y dialog
 	fi
 fi
 if [ -z "$CONKY_PATH" ]
@@ -31,9 +37,15 @@ then
                 elif [ $DISTRO = "arch" ] || [ $DISTRO = "manjaro" ] 
                 then
                         sudo pacman -Sy conky	
-		elif [ $DISTRO = "fedora" ] || [ $DISTO = "centos" ] || [ $DISTRO = "opensuse" ]
+		elif [ $DISTRO = "fedora" ]
 		then
 			sudo dnf -y conky
+		elif [ $DISTRO = "opensuse" ]
+		then
+			sudo zypper -y conky
+		elif  [ $DISTO = "centos" ]
+		then
+			sudo yum -y conky
                 fi
          fi
 fi
